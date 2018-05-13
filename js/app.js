@@ -1,14 +1,15 @@
-/*
- * Create a list that holds all of your cards
- */
+// Variables
+// All cards
+var deck = $(".deck");
+// Single card
+var card = $(".card");
 
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+function displayCards() {
+  $(card).click(function() {
+    $(this).toggleClass("open");
+    $(this).toggleClass("show");
+  })
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
