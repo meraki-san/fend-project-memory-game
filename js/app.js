@@ -7,19 +7,39 @@ var card = $(".card");
 var cards = jQuery.makeArray(card);
 // Array of opened cards
 var openedCards = [];
+// Symbols Array
+var symbols = [
+  "diamond", "diamond", "paper-plane-o", "paper-plane-o",
+  "anchor", "anchor", "bolt", "bolt", "cube", "cube", "leaf", "leaf",
+  "bicycle", "bicycle", "bomb", "bomb"
+  ];
+
+function createHTML(symbols) {
+  for (i = 0; i < symbols.length; i++) {
+    $(".deck").append("<li class='card'><i class='fa fa-" + symbols[i] + "'></i></li>");;
+  };
+}
+
+function startGame() {
+  symbols = shuffle(symbols);
+  createHTML(symbols);
+  displayCards();
+  openCards();
+  restart();
+};
 
 function displayCards() {
-  $(card).click(function() {
+  $(".card").click(function() {
     $(this).toggleClass("open");
     $(this).toggleClass("show");
-    $(this).toggleClass("avoid-clicks");
   });
 };
 
 function openCards() {
-  $(card).click(function() {
+  $(".card").click(function() {
     openedCards.push(this);
     if (openedCards.length === 2) {
+      $(".card").addClass("avoid-clicks");
       if ($(openedCards[0]).children().attr("class") === $(openedCards[1]).children().attr("class")) {
         matched();
       } else {
@@ -32,13 +52,15 @@ function openCards() {
 function matched() {
   $(openedCards[0]).addClass("match").removeClass("open show");
   $(openedCards[1]).addClass("match").removeClass("open show");
+  $(".card").removeClass("avoid-clicks");
+  $(".card").removeClass("avoid-clicks");
   openedCards = [];
 }
 
 function unmatched() {
   setTimeout(function() {
-    $(openedCards[0]).removeClass("open show avoid-clicks");
-    $(openedCards[1]).removeClass("open show avoid-clicks");
+    $(".card").removeClass("open show avoid-clicks");
+    $(".card").removeClass("open show avoid-clicks");
     openedCards = [];
   }, 1000);
 }
@@ -57,6 +79,16 @@ function shuffle(array) {
 
     return array;
 }
+
+function restart() {
+  $(".restart").click(function() {
+    $(".card").removeClass("match open show avoid-clicks");
+  });
+};
+
+$(document).ready(function() {
+  startGame();
+});
 
 
 /*
