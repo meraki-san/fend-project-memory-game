@@ -3,12 +3,44 @@
 var deck = $(".deck");
 // Single card
 var card = $(".card");
+// Create a list from card
+var cards = jQuery.makeArray(card);
+// Array of opened cards
+var openedCards = [];
 
 function displayCards() {
   $(card).click(function() {
     $(this).toggleClass("open");
     $(this).toggleClass("show");
-  })
+    $(this).toggleClass("avoid-clicks");
+  });
+};
+
+function openCards() {
+  $(card).click(function() {
+    openedCards.push(this);
+    if (openedCards.length === 2) {
+      if ($(openedCards[0]).children().attr("class") === $(openedCards[1]).children().attr("class")) {
+        matched();
+      } else {
+        unmatched();
+      };
+    };
+  });
+};
+
+function matched() {
+  $(openedCards[0]).addClass("match").removeClass("open show");
+  $(openedCards[1]).addClass("match").removeClass("open show");
+  openedCards = [];
+}
+
+function unmatched() {
+  setTimeout(function() {
+    $(openedCards[0]).removeClass("open show avoid-clicks");
+    $(openedCards[1]).removeClass("open show avoid-clicks");
+    openedCards = [];
+  }, 1000);
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
