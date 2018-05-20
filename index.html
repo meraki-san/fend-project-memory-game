@@ -22,63 +22,31 @@
         		<li><i class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">3</span> Moves
-
+        	<span class="moves">0</span> Moves
+          <span class="m" id="minutes">00</span>:<span class="s" id="seconds">00</span>
             <div class="restart">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
 
         <ul class="deck">
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card open show">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
+
         </ul>
+
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2>🎉 You win! 🎉</h2>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button class="restart">Restart</button>
+            </div>
+          </div>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/app.js"></script>

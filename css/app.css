@@ -77,12 +77,21 @@ h1 {
 
 .deck .card.match {
     cursor: default;
+    pointer-events: none;
     background: #02ccba;
     font-size: 33px;
 }
 
+.deck .card.unmatch {
+    background: #e44602;
+}
+
 .avoid-clicks {
     pointer-events: none;
+}
+
+#minutes {
+  margin-left: 10%;
 }
 
 /*
@@ -103,11 +112,121 @@ h1 {
 }
 
 .score-panel .stars li {
-    list-style: none;
+    list-style-type: none;
     display: inline-block;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    color: white;
+    font-size: 30px;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.modal-body li {
+    list-style-type: none;
+    display: inline-block;
+    color: #ffb500;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+#rating {
+    margin-bottom: 0px;
+    font-size: 34px;
+}
+
+button.restart {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    padding: 10px 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 2px solid #ffb500;
+}
+
+button:hover.restart {
+    background-color: #ffb500;
+    color: white;
+    border-color: white;
+    cursor: pointer;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    color: white;
 }
