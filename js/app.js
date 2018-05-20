@@ -79,9 +79,13 @@ function matched() {
 }
 
 function unmatched() {
+  $(openedCards[0]).addClass("unmatch");
+  $(openedCards[1]).addClass("unmatch");
   setTimeout(function() {
     $(".card").removeClass("open show avoid-clicks");
     $(this).removeClass("avoid-clicks");
+    $(openedCards[0]).removeClass("unmatch");
+    $(openedCards[1]).removeClass("unmatch");
     openedCards = [];
   }, 1000);
 }
